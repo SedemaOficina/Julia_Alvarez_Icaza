@@ -48,29 +48,33 @@ body{
   inset:0;
   background:rgba(157,33,72,0.74);
 }
+
+/* Mobile: hero apilado y centrado */
 .hero > .wrap{
   position:relative;
-  padding:18px 16px 8px;
+  padding:16px 16px 6px;
   animation: heroIn .7s ease .05s both;
 }
 .hero-grid{
-  display:grid;
-  grid-template-columns:1fr auto;
-  gap:16px;
+  display:flex;
+  flex-direction:column;
   align-items:center;
+  gap:12px;
+  text-align:center;
 }
 
-/* En móvil apila nombre y foto para evitar recortes */
-@media (max-width:480px){
+/* Desktop: texto a la izquierda, foto a la derecha */
+@media (min-width: 760px){
   .hero-grid{
-    grid-template-columns:1fr;
+    display:grid;
+    grid-template-columns:1fr auto;
+    align-items:center;
+    gap:16px;
     text-align:left;
   }
-  .avatar-wrap{
-    justify-self:center;
-  }
 }
 
+/* Nombre en dos líneas */
 h1{
   font-family:'Cabin',sans-serif;
   font-weight:700;
@@ -80,13 +84,15 @@ h1{
 h1 .line{
   display:block;
   white-space:nowrap;
-  font-size:clamp(26px,6vw,48px);
+  font-size:clamp(28px,6vw,50px);
 }
+
+/* Cargo y dependencia */
 .role{
   color:var(--dorado);
   font-weight:700;
   margin:2px 0 6px;
-  font-size:clamp(15px,3.3vw,19px);
+  font-size:clamp(16px,3.5vw,20px);
 }
 .org{
   margin:0;
@@ -128,7 +134,7 @@ h1 .line{
 }
 
 /* min-height solo en pantallas pequeñas para que se vea “lleno” */
-@media (max-width:768px){
+@media (max-width: 768px){
   .actions-bg{
     min-height:calc(100vh - 82px);
   }
@@ -175,39 +181,26 @@ h1 .line{
   display:block;
 }
 
-/* 6. Fila de logos X + Instagram */
+/* 6. Íconos de X e Instagram bajo los botones */
 .social-row{
-  margin:14px auto 0;
   display:flex;
   justify-content:center;
-  gap:24px;
-}
-.social-row a{
-  display:inline-flex;
   align-items:center;
-  justify-content:center;
+  gap:28px;
+  margin-top:12px;
 }
-.social-row svg{
+.social-icon svg{
   width:28px;
   height:28px;
-  fill:var(--guinda);
-  transition:transform .15s ease;
-}
-.social-row a:hover svg{
-  transform:scale(1.08);
-}
-
-/* 7. Corazón CDMX debajo de los botones */
-.hero-heart{
   display:block;
-  margin:10px auto 0;
-  width:clamp(110px, 15vw, 170px);
-  height:auto;
-  animation: heartbeat 1.6s ease-in-out infinite;
-  pointer-events:none;
+  transition:transform .15s ease, opacity .15s ease;
+}
+.social-icon:hover svg{
+  transform:translateY(-2px);
+  opacity:.9;
 }
 
-/* 8. Animaciones */
+/* 7. Animaciones generales */
 @keyframes heroIn{
   from{opacity:0; transform:translateY(8px)}
   to{opacity:1; transform:none}
@@ -226,14 +219,6 @@ h1 .line{
 @keyframes bandFade{
   from{opacity:0} to{opacity:1}
 }
-@keyframes heartbeat{
-  0%  {transform:scale(1)}
-  10% {transform:scale(1.12)}
-  20% {transform:scale(1)}
-  30% {transform:scale(1.12)}
-  40% {transform:scale(1)}
-  100%{transform:scale(1)}
-}
 
 /* Reduce animaciones si el usuario lo pide */
 @media (prefers-reduced-motion:reduce){
@@ -241,13 +226,7 @@ h1 .line{
   .hero > .wrap,
   .avatar,
   .curve-stroke,
-  .top-bar,
-  .hero-heart{
+  .top-bar{
     animation:none;
   }
-}
-
-/* Desktop: avatar más grande */
-@media(min-width:760px){
-  .avatar{width:168px;height:168px}
 }
