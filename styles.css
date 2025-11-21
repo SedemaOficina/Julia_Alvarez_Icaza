@@ -1,13 +1,13 @@
 :root{
-  --guinda:#9d2148;    /* Guinda institucional */
-  --dorado:#b28e5c;    /* Dorado institucional */
+  --guinda:#9d2148;
+  --dorado:#b28e5c;
   --blanco:#ffffff;
   --gris:#111;
-  --curve-speed: 2.8s; /* Velocidad trazo dorado */
+  --curve-speed: 2.8s;
 }
 
+/* CONTENEDOR */
 *{box-sizing:border-box}
-html,body{height:100%}
 body{
   margin:0;
   font-family:'Roboto',sans-serif;
@@ -20,7 +20,7 @@ body{
   padding:0 16px;
 }
 
-/* 1. Banner superior blanco */
+/* BANNER SUPERIOR */
 .top-bar{
   background:#fff;
   height:82px;
@@ -31,11 +31,10 @@ body{
   animation: bandFade .6s ease both;
 }
 .top-bar img{
-  height:72px;      /* logo más grande */
-  width:auto;
+  height:72px;
 }
 
-/* 2. Hero con patrón rojo */
+/* HERO */
 .hero{
   color:#fff;
   position:relative;
@@ -49,61 +48,36 @@ body{
   background:rgba(157,33,72,0.74);
 }
 
-/* Mobile: hero apilado y centrado */
-.hero > .wrap{
+/* CENTRAR TODO */
+.hero-center{
   position:relative;
-  padding:16px 16px 6px;
-  animation: heroIn .7s ease .05s both;
-}
-.hero-grid{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:12px;
   text-align:center;
+  padding:25px 0 10px;
 }
 
-/* Desktop: texto a la izquierda, foto a la derecha */
-@media (min-width: 760px){
-  .hero-grid{
-    display:grid;
-    grid-template-columns:1fr auto;
-    align-items:center;
-    gap:16px;
-    text-align:left;
-  }
-}
-
-/* Nombre en dos líneas */
-h1{
+/* NOMBRE */
+.hero-name{
   font-family:'Cabin',sans-serif;
   font-weight:700;
+  font-size:clamp(30px,6vw,48px);
   margin:0 0 6px;
-  line-height:1.06;
-}
-h1 .line{
-  display:block;
-  white-space:nowrap;
-  font-size:clamp(28px,6vw,50px);
 }
 
-/* Cargo y dependencia */
-.role{
+/* CARGO */
+.hero-role{
   color:var(--dorado);
   font-weight:700;
-  margin:2px 0 6px;
-  font-size:clamp(16px,3.5vw,20px);
-}
-.org{
-  margin:0;
-  opacity:.98;
-  font-size:clamp(14px,2.7vw,18px);
+  font-size:clamp(15px,3.2vw,20px);
+  margin-bottom:12px;
 }
 
-/* Foto de perfil */
+/* FOTO CENTRADA */
+.avatar-wrap{
+  margin:0 auto;
+}
 .avatar{
-  width:132px;
-  height:132px;
+  width:clamp(130px,20vw,165px);
+  height:clamp(130px,20vw,165px);
   border-radius:50%;
   object-fit:cover;
   border:3px solid #fff;
@@ -113,34 +87,24 @@ h1 .line{
   animation: avatarPop .5s ease .2s both;
 }
 
-/* 3. Curva orgánica */
-.curve{position:relative;z-index:1}
-.curve svg{display:block;width:100%;height:auto}
+/* CURVA */
+.curve svg{width:100%}
 .curve-fill{fill:#fff}
 .curve-stroke{
   fill:none;
   stroke:var(--dorado);
-  stroke-width:13;              /* grosor de la línea dorada */
+  stroke-width:13;
   stroke-linecap:round;
   stroke-dasharray:1000;
   stroke-dashoffset:1000;
   animation: draw var(--curve-speed) ease-out .2s forwards;
 }
 
-/* 4. Fondo de acciones (patrón blanco) */
+/* ACCIONES */
 .actions-bg{
   background:#fff url('patron_blanco.jpg') center/cover no-repeat;
-  padding:22px 0 32px;
+  padding:22px 0 28px;
 }
-
-/* min-height solo en pantallas pequeñas para que se vea “lleno” */
-@media (max-width: 768px){
-  .actions-bg{
-    min-height:calc(100vh - 82px);
-  }
-}
-
-/* 5. Botones */
 .actions{
   display:flex;
   flex-direction:column;
@@ -148,6 +112,8 @@ h1 .line{
   max-width:420px;
   margin:0 auto;
 }
+
+/* BOTONES */
 .btn{
   display:flex;
   align-items:center;
@@ -156,77 +122,49 @@ h1 .line{
   text-decoration:none;
   font-weight:700;
   border-radius:12px;
-  padding:10px 14px;
+  padding:12px 14px;
   border:2px solid var(--guinda);
   border-bottom:3px solid var(--guinda);
   background:#fff;
   color:var(--guinda);
-  transition:background .2s, transform .05s, box-shadow .2s;
-  box-shadow:0 0 0 rgba(0,0,0,0);
-  animation: btnIn .5s ease both;
+  transition:background .2s, transform .05s;
 }
-.actions .btn:nth-child(1){animation-delay:.05s}
-.actions .btn:nth-child(2){animation-delay:.1s}
-.actions .btn:nth-child(3){animation-delay:.15s}
 .btn:hover{background:#f7f2f5}
-.btn:active{transform:translateY(1px)}
-.btn:focus-visible{
-  outline:3px solid rgba(157,33,72,.25);
-  outline-offset:2px;
-  box-shadow:0 0 0 3px rgba(157,33,72,.15);
-}
 .icon svg{
   width:20px;
-  height:20px;
-  display:block;
 }
 
-/* 6. Íconos de X e Instagram bajo los botones */
+/* REDES SOCIALES A COLOR */
 .social-row{
   display:flex;
   justify-content:center;
-  align-items:center;
-  gap:28px;
-  margin-top:12px;
+  gap:26px;
+  margin-top:16px;
 }
-.social-icon svg{
-  width:28px;
-  height:28px;
-  display:block;
-  transition:transform .15s ease, opacity .15s ease;
-}
-.social-icon:hover svg{
-  transform:translateY(-2px);
-  opacity:.9;
+.social-icon img{
+  width:42px;
+  height:auto;
 }
 
-/* 7. Animaciones generales */
-@keyframes heroIn{
-  from{opacity:0; transform:translateY(8px)}
-  to{opacity:1; transform:none}
+/* CORAZÓN LATIENDO */
+.hero-heart{
+  display:block;
+  margin:12px auto 4px;
+  width:clamp(110px,15vw,170px);
+  animation: heartbeat 1.6s ease-in-out infinite;
 }
+
+/* ANIMACIONES */
 @keyframes avatarPop{
-  0%{opacity:0; transform:scale(.94)}
+  0%{opacity:0; transform:scale(.92)}
   100%{opacity:1; transform:scale(1)}
 }
-@keyframes draw{
-  to{ stroke-dashoffset:0 }
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes heartbeat{
+  0%{transform:scale(1)}
+  12%{transform:scale(1.12)}
+  25%{transform:scale(1)}
+  35%{transform:scale(1.12)}
+  45%{transform:scale(1)}
 }
-@keyframes btnIn{
-  from{opacity:0; transform:translateY(6px)}
-  to{opacity:1; transform:none}
-}
-@keyframes bandFade{
-  from{opacity:0} to{opacity:1}
-}
-
-/* Reduce animaciones si el usuario lo pide */
-@media (prefers-reduced-motion:reduce){
-  .btn,
-  .hero > .wrap,
-  .avatar,
-  .curve-stroke,
-  .top-bar{
-    animation:none;
-  }
-}
+@keyframes bandFade{from{opacity:0}to{opacity:1}}
