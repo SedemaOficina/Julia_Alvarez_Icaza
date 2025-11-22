@@ -163,7 +163,8 @@ h1 .line{
   justify-content:center;
   align-items:center;
   gap:16px;
-  margin-top:8px;          /* poco espacio para no alargar demasiado */
+  margin-top:14px;   /* antes 8px: baja los iconos y los separa de los botones */
+
 }
 .social-icon img{
   display:block;
@@ -227,12 +228,7 @@ h1 .line{
   .avatar{width:168px;height:168px}
 }
 
-/* Ajuste solo para la tarjeta de Julia: menos blanco debajo del corazón */
-.actions-bg--julia{
-  padding-bottom: 10px;   /* en lugar de 32px, reduce mucho el espacio bajo el corazón */
-}
-
-/* Ajuste del corazón en Julia: casi pegado a las redes */
+/* Ajuste fino solo para la tarjeta de Julia */
 .hero-heart--julia{
-  margin-top: 2px;        /* más chico que los 6px de la clase base */
+  margin-top:24px;   /* sube la separación entre iconos y corazón y baja el corazón en la página */
 }
