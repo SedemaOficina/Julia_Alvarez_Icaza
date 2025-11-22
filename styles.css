@@ -1,9 +1,9 @@
 :root{
-  --guinda:#9d2148;
-  --dorado:#b28e5c;
+  --guinda:#9d2148;    /* Guinda institucional */
+  --dorado:#b28e5c;    /* Dorado institucional */
   --blanco:#ffffff;
   --gris:#111;
-  --curve-speed: 2.8s;
+  --curve-speed: 2.8s; /* Velocidad trazo dorado */
 }
 
 *{box-sizing:border-box}
@@ -20,7 +20,7 @@ body{
   padding:0 16px;
 }
 
-/* Banner superior */
+/* 1. Banner superior blanco */
 .top-bar{
   background:#fff;
   height:82px;
@@ -31,55 +31,61 @@ body{
   animation: bandFade .6s ease both;
 }
 .top-bar img{
-  height:72px;
+  height:72px;      /* logo más grande */
   width:auto;
 }
 
-/* HERO con patrón rojo (SIN degradado) */
+/* 2. Hero con patrón rojo */
 .hero{
   color:#fff;
   position:relative;
   background:url('patron_rojo.jpg') center/cover no-repeat;
   overflow:hidden;
 }
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(157,33,72,0.74);
+}
 .hero > .wrap{
   position:relative;
-  padding:16px 16px 6px;
+  padding:18px 16px 8px;
   animation: heroIn .7s ease .05s both;
 }
 .hero-grid{
   display:grid;
   grid-template-columns:1fr auto;
-  gap:14px;
+  gap:16px;
   align-items:center;
 }
 h1{
   font-family:'Cabin',sans-serif;
   font-weight:700;
-  margin:0 0 4px;
+  margin:0 0 6px;
   line-height:1.06;
 }
 h1 .line{
   display:block;
   white-space:nowrap;
-  font-size:clamp(26px,5.4vw,46px);
+  font-size:clamp(28px,6vw,50px);
 }
 .role{
   color:var(--dorado);
   font-weight:700;
-  margin:2px 0 4px;
-  font-size:clamp(15px,3.2vw,19px);
+  margin:2px 0 6px;
+  font-size:clamp(16px,3.5vw,20px);
 }
 .org{
   margin:0;
   opacity:.98;
-  font-size:clamp(13px,2.5vw,17px);
+  font-size:clamp(14px,2.7vw,18px);
 }
 
-/* Avatar */
+/* Foto de perfil */
 .avatar{
-  width:128px;
-  height:128px;
+  width:132px;
+  height:132px;
   border-radius:50%;
   object-fit:cover;
   border:3px solid #fff;
@@ -89,31 +95,31 @@ h1 .line{
   animation: avatarPop .5s ease .2s both;
 }
 
-/* Curva */
+/* 3. Curva orgánica */
 .curve{position:relative;z-index:1}
 .curve svg{display:block;width:100%;height:auto}
 .curve-fill{fill:#fff}
 .curve-stroke{
   fill:none;
   stroke:var(--dorado);
-  stroke-width:13;
+  stroke-width:13;              /* grosor de la línea dorada */
   stroke-linecap:round;
   stroke-dasharray:1000;
   stroke-dashoffset:1000;
   animation: draw var(--curve-speed) ease-out .2s forwards;
 }
 
-/* Fondo acciones (blanco plano, compacto) */
+/* 4. Fondo de acciones (PLANO, sin patrón) */
 .actions-bg{
-  background:#fff;
-  padding:10px 0 8px;
+  background:#fff;              /* antes tenía imagen de patrón */
+  padding:22px 0 32px;          /* menos aire debajo */
 }
 
-/* Botones */
+/* 5. Botones */
 .actions{
   display:flex;
   flex-direction:column;
-  gap:8px;
+  gap:12px;
   max-width:420px;
   margin:0 auto;
 }
@@ -121,11 +127,11 @@ h1 .line{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:8px;
+  gap:12px;
   text-decoration:none;
   font-weight:700;
   border-radius:12px;
-  padding:7px 12px;
+  padding:10px 14px;
   border:2px solid var(--guinda);
   border-bottom:3px solid var(--guinda);
   background:#fff;
@@ -133,11 +139,11 @@ h1 .line{
   transition:background .2s, transform .05s, box-shadow .2s;
   box-shadow:0 0 0 rgba(0,0,0,0);
   animation: btnIn .5s ease both;
-  font-size:0.95rem;
 }
 .actions .btn:nth-child(1){animation-delay:.05s}
 .actions .btn:nth-child(2){animation-delay:.1s}
 .actions .btn:nth-child(3){animation-delay:.15s}
+.actions .btn:nth-child(4){animation-delay:.2s}
 .btn:hover{background:#f7f2f5}
 .btn:active{transform:translateY(1px)}
 .btn:focus-visible{
@@ -151,31 +157,31 @@ h1 .line{
   display:block;
 }
 
-/* Redes sociales */
+/* >>>>>> NUEVO: fila de redes sociales para X e Instagram <<<<<< */
 .social-row{
   display:flex;
   justify-content:center;
   align-items:center;
-  gap:14px;
-  margin-top:6px;
+  gap:16px;
+  margin-top:8px;          /* poco espacio para no alargar demasiado */
 }
 .social-icon img{
   display:block;
-  width:26px;
+  width:28px;              /* iconos pequeños para que casi no sumen altura */
   height:auto;
 }
 
-/* Corazón CDMX */
+/* 6. Corazón CDMX debajo de los botones */
 .hero-heart{
   display:block;
-  margin:4px auto 0;
-  width:clamp(95px, 13vw, 140px);
+  margin:6px auto 0;                    /* igual que en Liber */
+  width:clamp(110px, 15vw, 170px);
   height:auto;
   animation: heartbeat 1.6s ease-in-out infinite;
   pointer-events:none;
 }
 
-/* Animaciones */
+/* 7. Animaciones */
 @keyframes heroIn{
   from{opacity:0; transform:translateY(8px)}
   to{opacity:1; transform:none}
@@ -212,38 +218,6 @@ h1 .line{
   .top-bar,
   .hero-heart{
     animation:none;
-  }
-}
-
-/* Ajustes extra para móvil: recortar aún más altura */
-@media (max-width: 768px){
-  .top-bar{
-    height:74px;
-  }
-  .top-bar img{
-    height:64px;
-  }
-  .hero > .wrap{
-    padding:12px 12px 4px;
-  }
-  .avatar{
-    width:112px;
-    height:112px;
-  }
-  .actions-bg{
-    padding:8px 0 6px;
-  }
-  .btn{
-    padding:6px 10px;
-    font-size:0.9rem;
-  }
-  .social-row{
-    margin-top:4px;
-    gap:12px;
-  }
-  .hero-heart{
-    margin-top:2px;
-    width:100px;
   }
 }
 
