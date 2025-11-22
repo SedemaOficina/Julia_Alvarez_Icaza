@@ -3,50 +3,55 @@
 <head>
   <meta charset="UTF-8" />
 
-  <!-- Vista móvil -->
+  <!-- Vista responsiva en móvil -->
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Tarjeta digital — Julia Álvarez Icaza Ramírez</title>
 
-  <!-- Snippet para compartir en redes -->
+  <!-- Descripción para vistas previas -->
   <meta name="description"
-        content="Contacto de Julia Álvarez Icaza Ramírez — Secretaria del Medio Ambiente de la Ciudad de México. WhatsApp, vCard y página institucional." />
+        content="Contacto de Julia Álvarez Icaza Ramírez — Secretaria del Medio Ambiente de la Ciudad de México. WhatsApp, vCard, página institucional y redes sociales." />
 
-  <!-- NO indexar -->
+  <!-- Bloquea indexación -->
   <meta name="robots" content="noindex,nofollow" />
 
-  <!-- Tipografías -->
+  <!-- Tipografías institucionales -->
   <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
+  <!-- Hoja de estilos -->
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
 
-  <!-- BANNER SUPERIOR BLANCO -->
+  <!-- ░░░ Franja superior (logo) ░░░ -->
   <header class="top-bar">
     <img src="logo.png" alt="Secretaría del Medio Ambiente">
   </header>
 
-  <!-- HERO -->
+  <!-- ░░░ HERO guinda con patrón rojo ░░░ -->
   <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
 
-    <div class="wrap hero-center">
+        <div class="hero-titles">
+          <h1>
+            <span class="line">Julia Álvarez</span>
+            <span class="line">Icaza Ramírez</span>
+          </h1>
+          <div class="role">Secretaria</div>
+          <p class="org">Secretaría del Medio Ambiente de la Ciudad de México</p>
+        </div>
 
-      <!-- TEXTO CENTRADO -->
-      <h1 class="hero-name">
-        Julia<br>Álvarez Icaza Ramírez
-      </h1>
+        <!-- Foto -->
+        <figure class="avatar-wrap">
+          <img class="avatar" src="foto-julia.jpg" alt="Foto de Julia Álvarez Icaza Ramírez">
+        </figure>
 
-      <div class="hero-role">Secretaria del Medio Ambiente de la Ciudad de México</div>
-
-      <!-- FOTO CENTRADA -->
-      <figure class="avatar-wrap">
-        <img class="avatar" src="JAIR.jpg" alt="Foto de JAIR">
-      </figure>
-
+      </div>
     </div>
 
-    <!-- CURVA -->
+    <!-- Curva de transición -->
     <div class="curve" aria-hidden="true">
       <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
         <path class="curve-fill"
@@ -57,23 +62,22 @@
     </div>
   </section>
 
-  <!-- SECCIÓN DE BOTONES -->
+  <!-- ░░░ ACCIONES ░░░ -->
   <section class="actions-bg">
-
     <main class="wrap actions">
 
-      <!-- WHATSAPP -->
+      <!-- WhatsApp -->
       <a class="btn" href="https://wa.me/525544416261" target="_blank" rel="noopener">
         <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 256 256"><path fill="#9d2148" d="M128 24a88 88 0 0 0-76.3 129.9..."/></svg>
+          <svg viewBox="0 0 256 256"><path fill="#9d2148" d="M128 24a88 88 0 0 0-76.3 129.9L40 216l62.7-11.9A88 88 0 1 0 128 24Zm0 160a72 72 0 0 1-36.7-9.9l-2.6-1.6l-37.3 7.1l7.1-37.3l-1.6-2.6A72 72 0 1 1 128 184Z"/></svg>
         </span>
         WhatsApp
       </a>
 
-      <!-- VCard -->
-      <a class="btn" href="JAIR.vcf" download="JAIR.vcf">
+      <!-- vCard -->
+      <a class="btn" href="Julia_Alvarez_Icaza.vcf" download="Julia_Alvarez_Icaza.vcf">
         <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 256 256"><path fill="#9d2148" d="M216 40H40a16 16 0 0 0-16 16..."/></svg>
+          <svg viewBox="0 0 256 256"><path fill="#9d2148" d="M216 40H40a16 16 0 0 0-16 16v144a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V56a16 16 0 0 0-16-16Z"/></svg>
         </span>
         Agregar contacto
       </a>
@@ -81,30 +85,26 @@
       <!-- Página institucional -->
       <a class="btn" href="https://sedema.cdmx.gob.mx/" target="_blank" rel="noopener">
         <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 256 256"><path fill="#9d2148" d="M152 32h72v72h-24V78.6..."/></svg>
+          <svg viewBox="0 0 256 256"><path fill="#9d2148" d="M152 32h72v72h-24V78.6L121.9 156l-22.6-22.6L177.4 56H152V32Z"/></svg>
         </span>
         Página institucional
       </a>
 
     </main>
 
-    <!-- ICONOS DE REDES (A COLOR) -->
+    <!-- Redes sociales centradas -->
     <div class="social-row">
-
-      <!-- X -->
-      <a href="https://x.com/Jualicra" target="_blank" class="social-icon">
-        <img src="xcolor.png" alt="X">
+      <a class="social-icon" href="https://x.com/Jualicra" target="_blank">
+        <img src="logo-x-color.png" alt="X">
       </a>
 
-      <!-- Instagram -->
-      <a href="https://www.instagram.com/juliaalvarezicaza/" target="_blank" class="social-icon">
-        <img src="instagram-color.png" alt="Instagram">
+      <a class="social-icon" href="https://www.instagram.com/juliaalvarezicaza/" target="_blank">
+        <img src="logo-instagram-color.png" alt="Instagram">
       </a>
-
     </div>
 
-    <!-- CORAZÓN LATIENDO -->
-    <img src="corazon.png" alt="Corazón Ciudad de México" class="hero-heart"/>
+    <!-- Corazón CDMX -->
+    <img src="corazon.png" alt="Corazón Ciudad de México" class="hero-heart" />
 
   </section>
 
