@@ -227,7 +227,12 @@ h1 .line{
   .avatar{width:168px;height:168px}
 }
 
-/* Ajuste fino solo para la tarjeta de Julia: menos blanco debajo del corazón */
+/* Ajuste solo para la tarjeta de Julia: menos blanco debajo del corazón */
+.actions-bg--julia{
+  padding-bottom: 10px;   /* en lugar de 32px, reduce mucho el espacio bajo el corazón */
+}
+
+/* Ajuste del corazón en Julia: casi pegado a las redes */
 .hero-heart--julia{
-  margin-top: 26px;   /* estaba en 6px por la clase base, lo empujamos un poco hacia abajo */
+  margin-top: 2px;        /* más chico que los 6px de la clase base */
 }
