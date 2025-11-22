@@ -1,9 +1,9 @@
 :root{
-  --guinda:#9d2148;
-  --dorado:#b28e5c;
+  --guinda:#9d2148;    /* Guinda institucional */
+  --dorado:#b28e5c;    /* Dorado institucional */
   --blanco:#ffffff;
   --gris:#111;
-  --curve-speed: 2.8s;
+  --curve-speed: 2.8s; /* Velocidad trazo dorado */
 }
 
 *{box-sizing:border-box}
@@ -20,7 +20,7 @@ body{
   padding:0 16px;
 }
 
-/* Banner superior */
+/* 1. Banner superior blanco */
 .top-bar{
   background:#fff;
   height:82px;
@@ -28,13 +28,14 @@ body{
   align-items:center;
   justify-content:center;
   border-bottom:3px solid var(--dorado);
+  animation: bandFade .6s ease both;
 }
 .top-bar img{
   height:72px;
   width:auto;
 }
 
-/* HERO con patrón rojo */
+/* 2. Hero con patrón rojo (igual que la de Liber) */
 .hero{
   color:#fff;
   position:relative;
@@ -50,6 +51,7 @@ body{
 .hero > .wrap{
   position:relative;
   padding:18px 16px 8px;
+  animation: heroIn .7s ease .05s both;
 }
 .hero-grid{
   display:grid;
@@ -57,7 +59,6 @@ body{
   gap:16px;
   align-items:center;
 }
-
 h1{
   font-family:'Cabin',sans-serif;
   font-weight:700;
@@ -81,7 +82,7 @@ h1 .line{
   font-size:clamp(14px,2.7vw,18px);
 }
 
-/* Avatar */
+/* Foto de perfil */
 .avatar{
   width:132px;
   height:132px;
@@ -91,10 +92,12 @@ h1 .line{
   outline:2px solid var(--dorado);
   outline-offset:-3px;
   box-shadow:0 3px 12px rgba(0,0,0,.25);
+  animation: avatarPop .5s ease .2s both;
 }
 
-/* Curva */
-.curve svg{width:100%;height:auto}
+/* 3. Curva orgánica */
+.curve{position:relative;z-index:1}
+.curve svg{display:block;width:100%;height:auto}
 .curve-fill{fill:#fff}
 .curve-stroke{
   fill:none;
@@ -105,19 +108,18 @@ h1 .line{
   stroke-dashoffset:1000;
   animation: draw var(--curve-speed) ease-out .2s forwards;
 }
-@keyframes draw{to{stroke-dashoffset:0}}
 
-/* Fondo de acciones (blanco plano) */
+/* 4. Fondo de acciones (blanco plano, sin patrón) */
 .actions-bg{
   background:#fff;
-  padding:16px 0 20px;
+  padding:12px 0 10px;   /* compacto para que todo quepa en una pantalla */
 }
 
-/* Botones compactos */
+/* 5. Botones */
 .actions{
   display:flex;
   flex-direction:column;
-  gap:8px;
+  gap:8px;               /* menos separación entre botones */
   max-width:420px;
   margin:0 auto;
 }
@@ -129,44 +131,98 @@ h1 .line{
   text-decoration:none;
   font-weight:700;
   border-radius:12px;
-  padding:7px 12px;
+  padding:7px 12px;      /* alto de botón reducido */
   border:2px solid var(--guinda);
   border-bottom:3px solid var(--guinda);
   background:#fff;
   color:var(--guinda);
-  transition:.2s;
+  transition:background .2s, transform .05s, box-shadow .2s;
+  box-shadow:0 0 0 rgba(0,0,0,0);
+  animation: btnIn .5s ease both;
+  font-size:0.95rem;
+}
+.actions .btn:nth-child(1){animation-delay:.05s}
+.actions .btn:nth-child(2){animation-delay:.1s}
+.actions .btn:nth-child(3){animation-delay:.15s}
+.actions .btn:nth-child(4){animation-delay:.2s}
+.btn:hover{background:#f7f2f5}
+.btn:active{transform:translateY(1px)}
+.btn:focus-visible{
+  outline:3px solid rgba(157,33,72,.25);
+  outline-offset:2px;
+  box-shadow:0 0 0 3px rgba(157,33,72,.15);
 }
 .icon svg{
   width:20px;
   height:20px;
+  display:block;
 }
 
-/* Redes sociales */
+/* 6. Redes sociales (X e Instagram) */
 .social-row{
   display:flex;
   justify-content:center;
   align-items:center;
-  gap:18px;
-  margin-top:10px;
+  gap:16px;
+  margin-top:8px;        /* poco espacio para no alargar demasiado */
 }
 .social-icon img{
-  width:32px;
-  height:auto;
   display:block;
+  width:28px;            /* iconos pequeños para no generar scroll */
+  height:auto;
 }
 
-/* Corazón CDMX */
+/* 7. Corazón CDMX debajo de los botones y redes */
 .hero-heart{
   display:block;
-  margin:6px auto 0;
-  width:clamp(110px, 15vw, 170px);
+  margin:4px auto 0;                     /* muy pegado para ahorrar altura */
+  width:clamp(100px, 13vw, 150px);       /* un poco más pequeño */
   height:auto;
   animation: heartbeat 1.6s ease-in-out infinite;
+  pointer-events:none;
+}
+
+/* 8. Animaciones */
+@keyframes heroIn{
+  from{opacity:0; transform:translateY(8px)}
+  to{opacity:1; transform:none}
+}
+@keyframes avatarPop{
+  0%{opacity:0; transform:scale(.94)}
+  100%{opacity:1; transform:scale(1)}
+}
+@keyframes draw{
+  to{ stroke-dashoffset:0 }
+}
+@keyframes btnIn{
+  from{opacity:0; transform:translateY(6px)}
+  to{opacity:1; transform:none}
+}
+@keyframes bandFade{
+  from{opacity:0} to{opacity:1}
 }
 @keyframes heartbeat{
-  0%{transform:scale(1)}
-  10%{transform:scale(1.12)}
-  20%{transform:scale(1)}
-  30%{transform:scale(1.12)}
-  40%{transform:scale(1)}
-  100%{transform:sca
+  0%  {transform:scale(1)}
+  10% {transform:scale(1.12)}
+  20% {transform:scale(1)}
+  30% {transform:scale(1.12)}
+  40% {transform:scale(1)}
+  100%{transform:scale(1)}
+}
+
+/* Reduce animaciones si el usuario lo pide */
+@media (prefers-reduced-motion:reduce){
+  .btn,
+  .hero > .wrap,
+  .avatar,
+  .curve-stroke,
+  .top-bar,
+  .hero-heart{
+    animation:none;
+  }
+}
+
+/* Desktop: avatar más grande */
+@media(min-width:760px){
+  .avatar{width:168px;height:168px}
+}
