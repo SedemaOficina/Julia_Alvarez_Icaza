@@ -157,31 +157,49 @@ h1 .line{
   display:block;
 }
 
-/* >>>>>> NUEVO: fila de redes sociales para X e Instagram <<<<<< */
-.social-row{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:16px;
-  margin-top:14px;   /* antes 8px: baja los iconos y los separa de los botones */
-
+/* Bloque de redes sociales (Julia) */
+.social-block{
+  margin-top: 10px;
+  text-align:center;
+  font-size: 13px;
+  color:#666;
 }
+
+.social-title{
+  margin-bottom: 4px;
+}
+
+.social-pill{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  padding:6px 14px;
+  border-radius:999px;
+  border:1px solid rgba(157,33,72,.25);
+  background:#fff;
+}
+
 .social-icon img{
   display:block;
-  width:28px;              /* iconos pequeños para que casi no sumen altura */
+  width:22px;
   height:auto;
 }
 
-/* 6. Corazón CDMX debajo de los botones */
+/* Corazón base (igual que Liber) */
 .hero-heart{
   display:block;
-  margin:6px auto 0;                    /* igual que en Liber */
+  margin:6px auto 0;
   width:clamp(110px, 15vw, 170px);
   height:auto;
   animation: heartbeat 1.6s ease-in-out infinite;
   pointer-events:none;
 }
 
+/* Ajuste fino solo para la tarjeta de Julia */
+.hero-heart--julia{
+  margin-top: 20px;   /* separa más el corazón del bloque de redes y baja visualmente el conjunto */
+}
 
 /* 7. Animaciones */
 @keyframes heroIn{
