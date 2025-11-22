@@ -6,8 +6,8 @@
   --curve-speed: 2.8s;
 }
 
-/* CONTENEDOR */
 *{box-sizing:border-box}
+html,body{height:100%}
 body{
   margin:0;
   font-family:'Roboto',sans-serif;
@@ -20,7 +20,7 @@ body{
   padding:0 16px;
 }
 
-/* BANNER SUPERIOR */
+/* Banner superior */
 .top-bar{
   background:#fff;
   height:82px;
@@ -28,13 +28,13 @@ body{
   align-items:center;
   justify-content:center;
   border-bottom:3px solid var(--dorado);
-  animation: bandFade .6s ease both;
 }
 .top-bar img{
   height:72px;
+  width:auto;
 }
 
-/* HERO */
+/* HERO con patrón rojo */
 .hero{
   color:#fff;
   position:relative;
@@ -47,48 +47,54 @@ body{
   inset:0;
   background:rgba(157,33,72,0.74);
 }
-
-/* CENTRAR TODO */
-.hero-center{
+.hero > .wrap{
   position:relative;
-  text-align:center;
-  padding:25px 0 10px;
+  padding:18px 16px 8px;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:16px;
+  align-items:center;
 }
 
-/* NOMBRE */
-.hero-name{
+h1{
   font-family:'Cabin',sans-serif;
   font-weight:700;
-  font-size:clamp(30px,6vw,48px);
   margin:0 0 6px;
+  line-height:1.06;
 }
-
-/* CARGO */
-.hero-role{
+h1 .line{
+  display:block;
+  white-space:nowrap;
+  font-size:clamp(28px,6vw,50px);
+}
+.role{
   color:var(--dorado);
   font-weight:700;
-  font-size:clamp(15px,3.2vw,20px);
-  margin-bottom:12px;
+  margin:2px 0 6px;
+  font-size:clamp(16px,3.5vw,20px);
+}
+.org{
+  margin:0;
+  opacity:.98;
+  font-size:clamp(14px,2.7vw,18px);
 }
 
-/* FOTO CENTRADA */
-.avatar-wrap{
-  margin:0 auto;
-}
+/* Avatar */
 .avatar{
-  width:clamp(130px,20vw,165px);
-  height:clamp(130px,20vw,165px);
+  width:132px;
+  height:132px;
   border-radius:50%;
   object-fit:cover;
   border:3px solid #fff;
   outline:2px solid var(--dorado);
   outline-offset:-3px;
   box-shadow:0 3px 12px rgba(0,0,0,.25);
-  animation: avatarPop .5s ease .2s both;
 }
 
-/* CURVA */
-.curve svg{width:100%}
+/* Curva */
+.curve svg{width:100%;height:auto}
 .curve-fill{fill:#fff}
 .curve-stroke{
   fill:none;
@@ -99,72 +105,68 @@ body{
   stroke-dashoffset:1000;
   animation: draw var(--curve-speed) ease-out .2s forwards;
 }
+@keyframes draw{to{stroke-dashoffset:0}}
 
-/* ACCIONES */
+/* Fondo de acciones (blanco plano) */
 .actions-bg{
-  background:#fff url('patron_blanco.jpg') center/cover no-repeat;
-  padding:22px 0 28px;
+  background:#fff;
+  padding:16px 0 20px;
 }
+
+/* Botones compactos */
 .actions{
   display:flex;
   flex-direction:column;
-  gap:12px;
+  gap:8px;
   max-width:420px;
   margin:0 auto;
 }
-
-/* BOTONES */
 .btn{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:12px;
+  gap:10px;
   text-decoration:none;
   font-weight:700;
   border-radius:12px;
-  padding:12px 14px;
+  padding:7px 12px;
   border:2px solid var(--guinda);
   border-bottom:3px solid var(--guinda);
   background:#fff;
   color:var(--guinda);
-  transition:background .2s, transform .05s;
+  transition:.2s;
 }
-.btn:hover{background:#f7f2f5}
 .icon svg{
   width:20px;
+  height:20px;
 }
 
-/* REDES SOCIALES A COLOR */
+/* Redes sociales */
 .social-row{
   display:flex;
   justify-content:center;
-  gap:26px;
-  margin-top:16px;
+  align-items:center;
+  gap:18px;
+  margin-top:10px;
 }
 .social-icon img{
-  width:42px;
+  width:32px;
   height:auto;
+  display:block;
 }
 
-/* CORAZÓN LATIENDO */
+/* Corazón CDMX */
 .hero-heart{
   display:block;
-  margin:12px auto 4px;
-  width:clamp(110px,15vw,170px);
+  margin:6px auto 0;
+  width:clamp(110px, 15vw, 170px);
+  height:auto;
   animation: heartbeat 1.6s ease-in-out infinite;
 }
-
-/* ANIMACIONES */
-@keyframes avatarPop{
-  0%{opacity:0; transform:scale(.92)}
-  100%{opacity:1; transform:scale(1)}
-}
-@keyframes draw{to{stroke-dashoffset:0}}
 @keyframes heartbeat{
   0%{transform:scale(1)}
-  12%{transform:scale(1.12)}
-  25%{transform:scale(1)}
-  35%{transform:scale(1.12)}
-  45%{transform:scale(1)}
-}
-@keyframes bandFade{from{opacity:0}to{opacity:1}}
+  10%{transform:scale(1.12)}
+  20%{transform:scale(1)}
+  30%{transform:scale(1.12)}
+  40%{transform:scale(1)}
+  100%{transform:sca
