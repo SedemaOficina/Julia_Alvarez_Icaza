@@ -1,9 +1,9 @@
 :root{
-  --guinda:#9d2148;    /* Guinda institucional */
-  --dorado:#b28e5c;    /* Dorado institucional */
+  --guinda:#9d2148;
+  --dorado:#b28e5c;
   --blanco:#ffffff;
   --gris:#111;
-  --curve-speed: 2.8s; /* Velocidad trazo dorado */
+  --curve-speed: 2.8s;
 }
 
 *{box-sizing:border-box}
@@ -20,7 +20,7 @@ body{
   padding:0 16px;
 }
 
-/* 1. Banner superior blanco */
+/* Banner superior */
 .top-bar{
   background:#fff;
   height:82px;
@@ -35,57 +35,51 @@ body{
   width:auto;
 }
 
-/* 2. Hero con patrón rojo (igual que la de Liber) */
+/* HERO con patrón rojo (SIN degradado) */
 .hero{
   color:#fff;
   position:relative;
   background:url('patron_rojo.jpg') center/cover no-repeat;
   overflow:hidden;
 }
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(157,33,72,0.74);
-}
 .hero > .wrap{
   position:relative;
-  padding:18px 16px 8px;
+  padding:16px 16px 6px;
   animation: heroIn .7s ease .05s both;
 }
 .hero-grid{
   display:grid;
   grid-template-columns:1fr auto;
-  gap:16px;
+  gap:14px;
   align-items:center;
 }
 h1{
   font-family:'Cabin',sans-serif;
   font-weight:700;
-  margin:0 0 6px;
+  margin:0 0 4px;
   line-height:1.06;
 }
 h1 .line{
   display:block;
   white-space:nowrap;
-  font-size:clamp(28px,6vw,50px);
+  font-size:clamp(26px,5.4vw,46px);
 }
 .role{
   color:var(--dorado);
   font-weight:700;
-  margin:2px 0 6px;
-  font-size:clamp(16px,3.5vw,20px);
+  margin:2px 0 4px;
+  font-size:clamp(15px,3.2vw,19px);
 }
 .org{
   margin:0;
   opacity:.98;
-  font-size:clamp(14px,2.7vw,18px);
+  font-size:clamp(13px,2.5vw,17px);
 }
 
-/* Foto de perfil */
+/* Avatar */
 .avatar{
-  width:132px;
-  height:132px;
+  width:128px;
+  height:128px;
   border-radius:50%;
   object-fit:cover;
   border:3px solid #fff;
@@ -95,7 +89,7 @@ h1 .line{
   animation: avatarPop .5s ease .2s both;
 }
 
-/* 3. Curva orgánica */
+/* Curva */
 .curve{position:relative;z-index:1}
 .curve svg{display:block;width:100%;height:auto}
 .curve-fill{fill:#fff}
@@ -109,17 +103,17 @@ h1 .line{
   animation: draw var(--curve-speed) ease-out .2s forwards;
 }
 
-/* 4. Fondo de acciones (blanco plano, sin patrón) */
+/* Fondo acciones (blanco plano, compacto) */
 .actions-bg{
   background:#fff;
-  padding:12px 0 10px;   /* compacto para que todo quepa en una pantalla */
+  padding:10px 0 8px;
 }
 
-/* 5. Botones */
+/* Botones */
 .actions{
   display:flex;
   flex-direction:column;
-  gap:8px;               /* menos separación entre botones */
+  gap:8px;
   max-width:420px;
   margin:0 auto;
 }
@@ -127,11 +121,11 @@ h1 .line{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:10px;
+  gap:8px;
   text-decoration:none;
   font-weight:700;
   border-radius:12px;
-  padding:7px 12px;      /* alto de botón reducido */
+  padding:7px 12px;
   border:2px solid var(--guinda);
   border-bottom:3px solid var(--guinda);
   background:#fff;
@@ -144,7 +138,6 @@ h1 .line{
 .actions .btn:nth-child(1){animation-delay:.05s}
 .actions .btn:nth-child(2){animation-delay:.1s}
 .actions .btn:nth-child(3){animation-delay:.15s}
-.actions .btn:nth-child(4){animation-delay:.2s}
 .btn:hover{background:#f7f2f5}
 .btn:active{transform:translateY(1px)}
 .btn:focus-visible{
@@ -158,31 +151,31 @@ h1 .line{
   display:block;
 }
 
-/* 6. Redes sociales (X e Instagram) */
+/* Redes sociales */
 .social-row{
   display:flex;
   justify-content:center;
   align-items:center;
-  gap:16px;
-  margin-top:8px;        /* poco espacio para no alargar demasiado */
+  gap:14px;
+  margin-top:6px;
 }
 .social-icon img{
   display:block;
-  width:28px;            /* iconos pequeños para no generar scroll */
+  width:26px;
   height:auto;
 }
 
-/* 7. Corazón CDMX debajo de los botones y redes */
+/* Corazón CDMX */
 .hero-heart{
   display:block;
-  margin:4px auto 0;                     /* muy pegado para ahorrar altura */
-  width:clamp(100px, 13vw, 150px);       /* un poco más pequeño */
+  margin:4px auto 0;
+  width:clamp(95px, 13vw, 140px);
   height:auto;
   animation: heartbeat 1.6s ease-in-out infinite;
   pointer-events:none;
 }
 
-/* 8. Animaciones */
+/* Animaciones */
 @keyframes heroIn{
   from{opacity:0; transform:translateY(8px)}
   to{opacity:1; transform:none}
@@ -219,6 +212,38 @@ h1 .line{
   .top-bar,
   .hero-heart{
     animation:none;
+  }
+}
+
+/* Ajustes extra para móvil: recortar aún más altura */
+@media (max-width: 768px){
+  .top-bar{
+    height:74px;
+  }
+  .top-bar img{
+    height:64px;
+  }
+  .hero > .wrap{
+    padding:12px 12px 4px;
+  }
+  .avatar{
+    width:112px;
+    height:112px;
+  }
+  .actions-bg{
+    padding:8px 0 6px;
+  }
+  .btn{
+    padding:6px 10px;
+    font-size:0.9rem;
+  }
+  .social-row{
+    margin-top:4px;
+    gap:12px;
+  }
+  .hero-heart{
+    margin-top:2px;
+    width:100px;
   }
 }
 
