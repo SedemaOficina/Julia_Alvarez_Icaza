@@ -181,6 +181,7 @@ h1 .line{
   pointer-events:none;
 }
 
+
 /* 7. Animaciones */
 @keyframes heroIn{
   from{opacity:0; transform:translateY(8px)}
@@ -224,4 +225,9 @@ h1 .line{
 /* Desktop: avatar más grande */
 @media(min-width:760px){
   .avatar{width:168px;height:168px}
+}
+
+/* Ajuste fino solo para la tarjeta de Julia: menos blanco debajo del corazón */
+.hero-heart--julia{
+  margin-top: 26px;   /* estaba en 6px por la clase base, lo empujamos un poco hacia abajo */
 }
